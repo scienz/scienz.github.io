@@ -1,0 +1,13 @@
+.main{
+	position:absolute;
+	width:95%;
+	height:100%;
+	left:0;
+	right:0;
+	top:0;
+	margin:auto;
+}
+
+body{
+	font-size:1.5em;
+}
