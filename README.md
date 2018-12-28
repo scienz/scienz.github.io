@@ -1,1 +1,1 @@
-# A personal website written by Xinchen Zhang
+Author: Xinchen Zhang
