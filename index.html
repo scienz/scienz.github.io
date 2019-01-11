@@ -7,92 +7,190 @@
 	<meta name="description" content="Personal Website">
 	<meta name="author" content="Xinchen Zhang">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<title>Home Page - Spinner's End</title>
-	
-	<link rel="stylesheet" href="css/main_theme.css">
-	<link rel="stylesheet" href="css/index_theme.css">
-	<link rel="stylesheet" href="css/header_theme.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="JS/navbar.js"></script>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' 
+		integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+
+	<title>Spinner's End - A Pernsonal Website</title>
+
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: snow;
+			font-family: "Lucida Console", Monaco, monospace
+		}
+
+		.header {
+			font-size: 1.5em;
+			font-style: italic;
+		}
+
+		.column {
+			float: left;
+
+			border-style: groove;
+			border-color: slategray;
+			border-width: 2px;
+			border-radius: 8px;
+
+		}
+
+		.content {
+			max-width: 1000px;
+			margin: auto;
+		}
+
+		.content:after {
+			display: table;
+			clear: both;
+		}
+
+		.sidebar {
+			width: 300px;
+			height: auto;
+			display: block;
+			overflow-x: hidden;
+			overflow-y: auto;
+			position: absolute;
+
+			border-right-style: none;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+
+		}
+
+		.sidebar a, button {
+			display: block;
+			padding: 10px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			text-decoration: none;
+			font-size: 1.2em;
+			color: black;
+			border: none;
+			background: none;
+			outline: none;
+			cursor: pointer;
+		}
+
+		.sidebar a:hover, button:hover {
+			color: dimgrey;
+		}
+
+		.dropdown-list {
+			display: none;
+			margin-left: 20px;
+		}
+
+		.dropdown-list button {
+			font-size: 1.0em;
+			padding-bottom: 10px;
+			text-align: left;
+		}
+
+		.fas fa-caret-down {
+			float: right;
+			padding-right: 10px;
+		}
+
+		.mainText {
+			width: 700px;
+			height: 90%;
+			margin-left: 300px;
+			position: absolute;
+			overflow-y: auto;
+
+			border-top-left-radius: 0;
+		}
+	</style>
+
 </head>
 
-<body>
-	<div id="header"></div>
-	<div class="homepage main">
-		<div class="sidebar">
-			<ul>
-				<li>
-					<a href="#My Experience">My Experience</a>
-				</li>
-				
-				<li>
-					<a href="Python Notes">Python Notes</a>
-				</li>
-				
-				<li>
-					<a href="Accumulations">Accumulations</a>
-				</li>
-			</ul>
+<body onload="loadPage('about.html')">
+	<div class="content">
+		<div class="header">
+			<p>Spinner's End</p>
 		</div>
-		<div class="pagebody">
-			<ul>
-				<li>
-					<p id="My Experience">My Experience</p>
-					
-					<ul>
-						<li>
-							<ul class="inline_list">
-								<li>
-									<p>13 July, 2018</p>
-								</li>
-								<li>
-									<a href="">"I have to make Sherlock Holmes less harder to read"</a>
-								</li>							
-							</ul>
-							
-							<ul class="inline_list">
-								<li>
-									<p>08 April, 2018</p>
-								</li>
-								<li>
-									<a href="">The Ultimate Gaming Optimization Solution For Dell XPS 15 9560</a>
-								</li>							
-							</ul>
-						
-							<ul class="inline_list">
-								<li>
-									<p>04 March, 2018</p>
-								</li>
-								<li>
-									<a href="">What to do when you lost the key for your bike cable lock</a>
-								</li>							
-							</ul>
-							
-							<ul class="inline_list">
-								<li>
-									<p>21 February, 2018</p>
-								</li>
-								<li>
-									<a href="">Amazing Creatures in BBC's Blue Planet II</a>
-								</li>							
-							</ul>
-							
-							<ul class="inline_list">
-								<li>
-									<p>17 February, 2018</p>
-								</li>
-								<li>
-									<a href="">Solve Throttling for Dell XPS 15 9560</a>
-								</li>							
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
+
+		<div class="column sidebar">
+			<button onclick="loadPage('about.html')">About</button>
+			<button class="dropdown-button">My Experience<i class='fas fa-caret-down'></i></button>
+
+			<div class="dropdown-list">
+				<button>The Ultimate Gaming Solution for Dell XPS 9560</button>
+				<button>Making <em>Sherlock Holmes</em> easier to read</button>
+			</div>
+
+			<button class="dropdown-button">Academic Notes<i class='fas fa-caret-down'></i></button>
+
+			<div class="dropdown-list">
+				<button>Python Notes</button>
+			</div>
+
+			<button class="dropdown-button">Accumulations<i class='fas fa-caret-down'></i></button>
+
+			<div class="dropdown-list">
+				<button>Vocabulary</button>
+				<button onclick="loadPage('colors.html')">Colors</button>
+			</div>
 		</div>
+
+		<div class="column mainText" id="mainText">
+			<p>Loading...</p>
+		</div>
+
 	</div>
+
+	<script>
+		var dropdown = document.getElementsByClassName("dropdown-button");
+
+		for (var i = 0 ; i < dropdown.length ; i++)
+		{
+			dropdown[i].addEventListener("click", function(){
+				var dropdown_lists = document.getElementsByClassName("dropdown-list")
+				var content = this.nextElementSibling;
+
+				for (var j = 0 ; j < dropdown_lists.length ; j++)
+				{
+					if (dropdown_lists[j] != content)
+					{
+						dropdown_lists[j].style.display = "none";
+					}
+					else
+					{
+						if (content.style.display == "block")
+						{
+							content.style.display = "none";
+						}
+						else
+						{
+							content.style.display = "block";
+						}
+					}
+				}
+			});
+		}
+	</script>
+
+	<script>
+		function loadPage(url)
+		{
+			var xhttp = new XMLHttpRequest();
+
+			xhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200)
+				{
+					document.getElementById("mainText").innerHTML = this.responseText;
+				}
+			};
+
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		}
+	</script>
 
 </body>
 
