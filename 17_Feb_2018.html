@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Solve throttling for Dell XPS 15 9560- My Experience</title>
+	
+	<style>
+		h3 {font-style: italic;}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h2>The Ultimate Gaming Solution for Dell XPS 9560</h2>
+		<hr>
+		<p>Originally written on 17 Feb, 2018</p>
+		<hr>
+	</div>
+	<div>
+		<h3>The Problem</h3>
+
+		<p>The problem of thermal and power throttling on Dell XPS 15 can lead to severe
+		 reduction of CPU frequency. With Intel Turbo Boost, the max Processor Cache
+		 Frequency of i7-7700HQ in XPS 15 9560 should reach up tp 3.49GHZ. However, after
+		 a short period of gaming, the cache frequency can drop down to the minimun
+		 (0.8GHZ), which results in a significant FPS drop.</p>
+		 <br>
+
+		<h3>Intel Dynamic Platform and Thermal Framework</h2>
+
+		<p>The easiest way to alleviate the problem is to delete Intel Dynamic Platform and
+		 Thermal Framework.<b>Right click "This PC"- Manage- Device Manager</b>. There could
+		 be a class called "Intel Dynamic Platform and Thermal Framework", or all of the
+		 relating drivers can be found under the class <b>"System devices"</b>. Once found the
+		 drivers, <b>ignore</b> all Intel Dynamic Platform and Thermal Framework Generic
+		 Participant, right click on the one called <b>"Intel Dynamic Platform and Thermal
+		 Framework Manager"</b>, choose <b>"Uninstall device"</b>, check "Delete the driver software
+		 for this device", and click <b>Uninstall</b>.
+
+		<p><span class="note">Note: </span>The driver that you just deleted will come back
+		 everytime when the computer is restarted. The only way for now is to delete it
+		 for each restart, or just simply do not turn off the computer. Additionally,
+		 somethimes Windows Update or Dell Assist will see the missing driver as an update
+		 and ask you to install it. Just ignore the message.</p>
+		<br>
+
+		<h3>Intel Extreme Tuning Utility</h2>
+
+		<p>This is the method for those who don't want to bother messing around with their
+		 computers' motherboard, and it is not as effective as the first step and the step
+		 coming up. To solve the throtting problem radically, I suggest to skip directly into
+		 the <a href="#STEP3">next step</a>.</p>
+
+		<p>Intel Extreme Tuning Utility (Intel XTU) is a software designed to directly interact
+		 with CPU. We can adjust CPU Voltage in it, and the adjustments will be applied immediately
+		 after we hit the "Apply" button. Therefore, this tool is powerful but dangerous.</p>
+
+		<p>First download XTU from <a href="https://downloadcenter.intel.com/download/24075/Intel-Extreme-Tuning-Utility-Intel-XTU-" target="_blank">here</a>. Follow the instructions to properly install it. After managing open XTU, click <b>"Advanced Tuning"- "Core"</b> . <span class="note">DO NOT CHANGE</span> anything except for <b>"Core Voltage Offset"</b>. You can decrease the CPU Core Voltage in a range between "-0.120 ~ 0" and I suggest no futher less. Adjust the offset into a proper number by checking out your coumputer's performance, and hit
+		 "Apply". This move can reduce heating of CPU when gaming and therefore alleviate the
+		 problem of throttling.</p>
+		 
+		<h4>17 June, 2018 Update</h3>
+		<ul>
+			<li>
+				<p>The optimal <b>Core Voltage Offset</b> for XPS 15 9560 is supposed to be -0.120V</p>
+			</li>
+			
+			<li>
+				<p>For other optional changes, you can:</p>
+				
+				<ul>
+					<li>
+						<p>disable <b>Turbo Booset Short Power Max</b></p>
+					</li>
+					
+					<li>
+						<p>set the <b>Turbo Boost Power Max</b> to 56.00W</p>
+					</li>
+					
+					<li>
+						<p>set the <b>Turbo Boost Power Time Window</b> to 64.000 Seconds</p>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<br>
+
+
+		<h3 id="STEP3">Thermal Grease and Thermal Pastes</h2>
+
+		<p>This step is described in detail in <a href="https://www.ultrabookreview.com/14875-fix-throttling-xps-15/" target="_blank"><cite>How To Fix Throttling on the Dell XPS 15 9560</cite></a>. Here are a few notes:</p>
+
+		<ul>
+			<li>Use T5 scewdriver to deal with the Torx screws on the bottom panel,
+		 and notice there are two other screws under the XPS nameplate.</li>
+
+			<li>The attachment is tight and it's hard to open it for the first time. Just
+		 be patient.</li>
+
+			li>When unscrewing the screws on the motherboard, keep them in the original order,
+		 otherwise the size may not be right when you try to put them back.</li>
+
+		</ul>
+		<br>
+
+
+		<h3>Throttlestop</h2>
+
+		<p>Throttlestop.exe is a software used to bypass CPU throttling, which turns out to be
+		 common in most laptops. While this sounds to be a perfect solution for our throttling
+		 problem here, unfortunately regardless of which version of it I choose, this software does
+		 not work on my XPS 15 9560. Still, the most effecient way is to use thermal grease
+		 and thermal pastes.</p>
+		<br>
+		
+		<h3>Further updates and notes</h2>
+		
+		<ul>
+			<li>
+				<p>If you deleted the IDPTF Manager driver and then slept your laptop or did not use it 
+				for a while, chances are high that the driver will be installed back. Always check if the driver 
+				was there when you feel you are lagging and freezing.</p>
+			</li>
+			
+			<li>
+				<p>If the throttle problem has already occurred (caused by the driver you failed to uninstall), 
+				simply uninstall the driver won't fix the problem any more. The only choice left is to reboot your system, 
+				or, if that doesn't work as well, shut down your system, wait for a while and then turn it on again.</p>
+			</li>
+			
+			<li>
+				<p>At the time when you just turn your laptop on and you are about to delete the driver, if you can't find 
+				the driver in Computer Management, it's probably because it was listed as "unknown device" in other sections. 
+				Do the same methods as the previous note shows.</p>
+			</li>
+			
+			<li>
+				<p>Remember to repaste your laptop after a certain amount of time. It is crucial.</p>
+			</li>
+			
+		</ul>
+		
+		<hr>
+		
+	</div>
+		
+	<div>	
+		<h3>Last modified on 11 April, 2018</h2>
+			
+	</div>
+	
+	
+
+
+</body>
+
+
+</html>
