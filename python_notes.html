@@ -1,373 +1,349 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Python notes- My Experience</title>
+<title>Python notes- My Experience</title>
 
-	<style>
-		.data_type_table{
-			border-collapse: collapse;
-			width: 35%;
-			border: 1px solid black;
-			}
-			
-		.data_type_table th, .data_type_table td{
-			border: 1px solid black;
-			text-align: left;
-			width: 20%;
-			}
+<style>
+	.data_type_table{
+		border-collapse: collapse;
+		width: 30%;
+		border: 1px solid black;
+	}
 
-	</style>
+	.data_type_table th, .data_type_table td{
+		border: 1px solid black;
+		text-align: left;
+		width: 15%;
+	}
+</style>
 
 </head>
 
 <body>
-	<div class="paragraphs">
-		<div>
-		
-		<h1><em>Useful websites</em></h1>
-		<ul>
-			<li>
-				<p>
-					<strong>
-						Using python in windows <a href= "https://docs.python.org/3.1/using/windows.html" target= "_blank":>https://docs.python.org/3.1/using/windows.html</a>
-					</strong>
-				</p>
-				
-			</li>
-			
-			<li>
-				<p>
-					<strong>
-						Pywin32 documentation <a href=" http://timgolden.me.uk/pywin32-docs/modules.html" target= "_blank">http://timgolden.me.uk/pywin32-docs/modules.html</a>
-					</strong>
-				</p>
-				
-			</li>
-			
-			<li>
-				<p>
-					<strong>
-						Using SetupAPI to uninstall Devices and Driver Packages 
-						<a href= "https://docs.microsoft.com/en-us/windows-hardware/drivers/install/using-setupapi-to-uninstall-devices-and-driver-packages" target= "_blank">
-						https://docs.microsoft.com/en-us/windows-hardware/drivers/install/using-setupapi-to-uninstall-devices-and-driver-packages</a>
-					</strong>
-				</p>
-				
-			</li>
-		</ul>
-		
-		</div>
-		
-		<div>
-			
-			<br></ br>
-			<h1><em>Data types</em></h1>
-			<table class="data_type_table">
-				<tr>
-					<th>Type name</th>
-					<th>Mutability</th>
-					<th>Representation</th>
-					<th>Notes</th>
-				</tr>
-				
-				<tr>
-					<td>Int</td>
-					<td>Immutable</td>
-					<td><p>int</p></td>
-					<td rowspan="2">
-						<p>The division operator "/" always returns a float.</p>
-						<pre>
->>> foo= 2
->>> bar= 1
->>> foo/bar
->>> 2.0
-						</pre>
-					</td>
-				</td>
-				
-				<tr>
-					<td>Float</td>
-					<td>Immutable</td>
-					<td><p>float</p></td>
-				</tr>
-				
-				<tr>
-					<td>Bool</td>
-					<td>Immutable</td>
-					<td><p>bool</p></td>
-					<td>True / False</td>
-				</tr>
-				
-				<tr>
-					<td>Tuple</td>
-					<td>Immutable</td>
-					<td><p>tuple</p></td>
-					<td>
-						<pre>
->>> foo= ()
-or
->>> foo= tuple()
-						</pre>
-						<p>Since it's immutable, it can be used as keys for a dictionary in replace of list.</p>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>String</td>
-					<td>Immutable</td>
-					<td><p>str</p></td>
-					<td>
-						<pre>
->>> foo= ''
->>> foo+ 1
->>> TypeError: must be str, not int
->>>
->>> bar= foo+ '1'
->>> bar
->>> '1'
->>> foo
->>> ''
->>> bar* 3
->>> '111'
-						</pre>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>List</td>
-					<td>Mutable</td>
-					<td><p>list</p></td>
-					<td>
-						<pre>
->>> foo= []
-or
->>> foo= list()
->>>
->>> foo.append('a')
->>> foo
->>> ['a']
-						</pre>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>Dictionary</td>
-					<td>Mutable</td>
-					<td><p>dict</p></td>
-					<td>
-						<pre>
->>> foo= dict()
->>> foo
->>> {}
->>> foo['bar']= 1
->>> foo
->>> {'bar': 1}
-						</pre>
-						<p>Keys of dictionaries can only be immutable data types.</p>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>Set</td>
-					<td>Mutable</td>
-					<td><p>set</p></td>
-					<td>
-						<pre>
->>> foo= set()
->>> foo
->>> set()
->>> foo.add('a')
->>> foo
->>> {'a'}
-						</pre>
-						<p>Set has no orders (but list does) and therefore indexing a set is inapplicable. (i.e., foo[0] is wrong)</p>
-						<p>Set contains no duplicates. E.g., </p>
-						<pre>
->>> foo= set()
->>> foo.add('a')
->>> foo.add('a')
->>> foo
->>> {'a'}
-						</pre>
-					</td>
-				</tr>
-				
-				<tr>
-					<th colspan="4">Names in Python are case-sensitive. E.g., list != List</th>
-				</tr>
-			</table>
-			
-		</div>
-		
-		<div>
-		
-		<br></ br>
-		<h1><em>Tkinter </em>
-			<span style="font-size:18px;">
-				<a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html" target="_blank" title="infohost.nmt.edu">New Mexico Tech tkinter reference</a>
-			</span>
-		
-		</h1>
-		
-		<ul>
-			<li>
-				<pre>
-				
-		
-import tkinter
-			
-def run()-> None:
+	<h2>Python Notes</h2>
+	<hr>
+<div class="paragraphs">
+<div>
+	<h3><em>Useful websites</em></h3>
+	<ul>
+	<li>
+	<p>
+		<strong>
+			Using python in windows <a href= "https://docs.python.org/3.1/using/windows.html" target= "_blank":>https://docs.python.org/3.1/using/windows.html</a>
+		</strong>
+	</p>
+
+	</li>
+
+	<li>
+	<p>
+		<strong>
+			Pywin32 documentation <a href=" http://timgolden.me.uk/pywin32-docs/modules.html" target= "_blank">http://timgolden.me.uk/pywin32-docs/modules.html</a>
+		</strong>
+	</p>
+
+	</li>
+
+	<li>
+	<p>
+		<strong>
+			Using SetupAPI to uninstall Devices and Driver Packages 
+			<a href= "https://docs.microsoft.com/en-us/windows-hardware/drivers/install/using-setupapi-to-uninstall-devices-and-driver-packages" target= "_blank">
+			https://docs.microsoft.com/en-us/windows-hardware/drivers/install/using-setupapi-to-uninstall-devices-and-driver-packages</a>
+		</strong>
+	</p>
+
+	</li>
+	</ul>
+
+	</div>
+
+	<div>
+
+	<br>
+	<h3><em>Data types</em></h3>
+	<table class="data_type_table">
+	<tr>
+	<th>Type name</th>
+	<th>Mutability</th>
+	<th>Representation</th>
+	<th>Notes</th>
+	</tr>
+
+	<tr>
+	<td>Int</td>
+	<td>Immutable</td>
+	<td><p>int</p></td>
+	<td rowspan="2">
+	<p>The division operator "/" always returns a float.</p>
+	<pre>
+	>>> foo= 2
+	>>> bar= 1
+	>>> foo/bar
+	>>> 2.0
+	</pre>
+	</td>
+	</td>
+
+	<tr>
+	<td>Float</td>
+	<td>Immutable</td>
+	<td><p>float</p></td>
+	</tr>
+
+	<tr>
+	<td>Bool</td>
+	<td>Immutable</td>
+	<td><p>bool</p></td>
+	<td>True / False</td>
+	</tr>
+
+	<tr>
+	<td>Tuple</td>
+	<td>Immutable</td>
+	<td><p>tuple</p></td>
+	<td>
+	<pre>
+	>>> foo= ()
+	or
+	>>> foo= tuple()
+	</pre>
+	<p>Since it's immutable, it can be used as keys for a dictionary in replace of list.</p>
+	</td>
+	</tr>
+
+	<tr>
+	<td>String</td>
+	<td>Immutable</td>
+	<td><p>str</p></td>
+	<td>
+	<pre>
+	>>> foo= ''
+	>>> foo+ 1
+	>>> TypeError: must be str, not int
+	>>>
+	>>> bar= foo+ '1'
+	>>> bar
+	>>> '1'
+	>>> foo
+	>>> ''
+	>>> bar* 3
+	>>> '111'
+	</pre>
+	</td>
+	</tr>
+
+	<tr>
+	<td>List</td>
+	<td>Mutable</td>
+	<td><p>list</p></td>
+	<td>
+	<pre>
+	>>> foo= []
+	or
+	>>> foo= list()
+	>>>
+	>>> foo.append('a')
+	>>> foo
+	>>> ['a']
+	</pre>
+	</td>
+	</tr>
+
+	<tr>
+	<td>Dictionary</td>
+	<td>Mutable</td>
+	<td><p>dict</p></td>
+	<td>
+	<pre>
+	>>> foo= dict()
+	>>> foo
+	>>> {}
+	>>> foo['bar']= 1
+	>>> foo
+	>>> {'bar': 1}
+	</pre>
+	<p>Keys of dictionaries can only be immutable data types.</p>
+	</td>
+	</tr>
+
+	<tr>
+	<td>Set</td>
+	<td>Mutable</td>
+	<td><p>set</p></td>
+	<td>
+	<pre>
+	>>> foo= set()
+	>>> foo
+	>>> set()
+	>>> foo.add('a')
+	>>> foo
+	>>> {'a'}
+	</pre>
+	<p>Set has no orders (but list does) and therefore indexing a set is inapplicable. (i.e., foo[0] is wrong)</p>
+	<p>Set contains no duplicates. E.g., </p>
+	<pre>
+	>>> foo= set()
+	>>> foo.add('a')
+	>>> foo.add('a')
+	>>> foo
+	>>> {'a'}
+	</pre>
+	</td>
+	</tr>
+
+	<tr>
+	<th colspan="4">Names in Python are case-sensitive. E.g., list != List</th>
+	</tr>
+	</table>
+</div>
+
+<div>
+	<br>
+	<h3><em>Tkinter </em>
+		<span style="font-size:18px;">
+		<a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html" target="_blank" title="infohost.nmt.edu">New Mexico Tech tkinter reference</a>
+		</span>
+	</h3>
+
+	<ul>
+	<li>
+	<pre>
+
+	import tkinter
+
+	def run()-> None:
 	root_window= tkinter.Tk()
 	root_window.mainloop()
-			
-if __name__== '__main__':
-	run()
-				
-				
-				</pre>
-			</li>
-			
-			<li>
-				<h2><em>root_window.attributes(arg1, arg2) </em>
-					<span style="font-size:18px;">
-						<a href="http://effbot.org/tkinterbook/wm.htm" target="_blank" title="effbot.org">reference page</a>
-					</span>
-				</h2>
-				<br></ br>
-				
-				<p><strong>arg1</strong>: str, keywords prefixed with a hyphen.</p>
-				<p><strong>arg2</strong>: float. If it indicates a boolean value, 1.0 (or 1) stands for True and 0.0 (or 0) stands for False. </p>
-				
-				<ul>
-					<li>
-						<h3>Making root_window transparent(in windows)</h3>
-						<pre>
-		
-root_window.attributes('-alpha', #alpha value)
-		
-						</pre>
-						<p>#alpha value: 0.0~ 1.0. 0.0 means fully transparent, whereas 1.0 means fully opaque</p>
-						<p><strong>E.g.</strong>
-							<pre>root_window.attributes('-alpha', 0.5)
-						
-							</pre>
-						</p>
-						
-					</li>
-					
-					<li>
-					
-						<h3>Making root_window top most</h3>
-						<pre>
-	
-root_window.attributes('-topmost', 1)
 
-						</pre>
-						
-					</li>
-					
-				</ul>
-				
-			</li>
-			
-			<li>
-				<h2><em>root_window.geometry(arg1) </em>
-					<span style="font-size:18px;">
-						<a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/geometry.html" target="_blank" title="infohost.nmy.edu">reference page</a>
-					</span>
-				
-				</h2>
-				<p>Determine the position of root_window.</p>
-				<br></ br>
-			
-				<p><strong>arg1</strong>: str, with the general form of  'wxh±x±y'</p>
-				<ul>
-					<li><p><strong>w</strong>: width, h: height, x: the character that separates them</p></li>
-					<li><p><strong>+x</strong>: x pixels from the left side of the window to the left side of the desktop</p></li>
-					<li><p><strong>-x</strong>: x pixels from the right side of the window to the right side of the desktop</p></li>
-					<li><p><strong>+y</strong>: y pixels from the top of the window to the top of the desktop</p></li>
-					<li><p><strong>-y</strong>: y pixels from the bottom of the window to the bottom of the desktop</p></li>
-				
-				</ul>
-				
-				<br></ br>
-				<p><strong>E.g.</strong>
-					<pre>root_window.geometry('120x50-0+20')
-					
-					</pre>
-				</p>
-				
-				<p><strong>120 and 50</strong>: window width and height, separated by x</p>
-				<p><strong>-0</strong>: there's no distance between the right side of the window and the right side of the desktop</p>
-				<p><strong>+20</strong>: 20 pixels from the top of the window to the top of the desktop</p>
-			</li>
-			<br></ br>
-			
-			<li>
-				<h2><em>root_window.resizable(0, 0)</em></h2>
-				<p>Fix the size of the root window.</p>
-			</li>
-			
-			<br></ br>
-			
-			<li>
-				<h2><em>winfo</em>
-					<span style="font-size:18px">
-						<a href="https://www.astro.princeton.edu/~rhl/Tcl-Tk_docs/tk/winfo.n.html" target="_blank" title="astro.princeton.edu">reference page</a>
-					</span>
-					
-				</h2>
-				<br></ br>
-				
-				<ul>
-					<li>
-						<h3>Get screen width</h3>
-						<pre>
+	if __name__== '__main__':
+	run()
+
+	</pre>
+	</li>
+
+	<li>
+	<h2><em>root_window.attributes(arg1, arg2) </em>
+		<span style="font-size:18px;">
+		<a href="http://effbot.org/tkinterbook/wm.htm" target="_blank" title="effbot.org">reference page</a>
+		</span>
+	</h2>
+	<br>
+
+	<p><strong>arg1</strong>: str, keywords prefixed with a hyphen.</p>
+	<p><strong>arg2</strong>: float. If it indicates a boolean value, 1.0 (or 1) stands for True and 0.0 (or 0) stands for False. </p>
+
+	<ul>
+	<li>
+	<h3>Making root_window transparent(in windows)</h3>
+	<pre>
+
+	root_window.attributes('-alpha', #alpha value)
+
+	</pre>
+	<p>#alpha value: 0.0~ 1.0. 0.0 means fully transparent, whereas 1.0 means fully opaque</p>
+	<p><strong>E.g.</strong>
+	<pre>root_window.attributes('-alpha', 0.5)
+
+	</pre>
+	</p>
+
+	</li>
+
+	<li>
+
+	<h3>Making root_window top most</h3>
+	<pre>
+
+	root_window.attributes('-topmost', 1)
+
+	</pre>
+
+	</li>
+
+	</ul>
+
+	</li>
+
+	<li>
+	<h2><em>root_window.geometry(arg1) </em>
+	<span style="font-size:18px;">
+	<a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/geometry.html" target="_blank" title="infohost.nmy.edu">reference page</a>
+	</span>
+
+	</h2>
+	<p>Determine the position of root_window.</p>
+	<br>
+
+	<p><strong>arg1</strong>: str, with the general form of  'wxh±x±y'</p>
+	<ul>
+	<li><p><strong>w</strong>: width, h: height, x: the character that separates them</p></li>
+	<li><p><strong>+x</strong>: x pixels from the left side of the window to the left side of the desktop</p></li>
+	<li><p><strong>-x</strong>: x pixels from the right side of the window to the right side of the desktop</p></li>
+	<li><p><strong>+y</strong>: y pixels from the top of the window to the top of the desktop</p></li>
+	<li><p><strong>-y</strong>: y pixels from the bottom of the window to the bottom of the desktop</p></li>
+
+	</ul>
+
+	<br>
+	<p><strong>E.g.</strong>
+	<pre>root_window.geometry('120x50-0+20')
+
+	</pre>
+	</p>
+
+	<p><strong>120 and 50</strong>: window width and height, separated by x</p>
+	<p><strong>-0</strong>: there's no distance between the right side of the window and the right side of the desktop</p>
+	<p><strong>+20</strong>: 20 pixels from the top of the window to the top of the desktop</p>
+	</li>
+	<br>
+
+	<li>
+	<h2><em>root_window.resizable(0, 0)</em></h2>
+	<p>Fix the size of the root window.</p>
+	</li>
+
+	<br>
+
+	<li>
+	<h2><em>winfo</em>
+	<span style="font-size:18px">
+	<a href="https://www.astro.princeton.edu/~rhl/Tcl-Tk_docs/tk/winfo.n.html" target="_blank" title="astro.princeton.edu">reference page</a>
+	</span>
+
+	</h2>
+	<br>
+
+	<ul>
+	<li>
+	<h3>Get screen width</h3>
+	<pre>
 
 	>>> screen_width= root_window.winfo_screenwidth()
 	>>> screen_width
 	>>> 1920
-	
-						</pre>
-						<p>Returns the width of your current screen.</p>
-					</li>
-					
-					<li>
-						<h3>Get screen height</h3>
-						<pre>
-						
+
+	</pre>
+	<p>Returns the width of your current screen.</p>
+	</li>
+
+	<li>
+	<h3>Get screen height</h3>
+	<pre>
+
 	>>> screen_height= root_window.winfo_screenheight()
 	>>> screen_height
 	>>> 1080
-	
-						</pre>
-						<p>Returns the height of your current screen.</p>
-					
-					</li>
-				
-				</ul>
-					
-			</li>
-			<br></ br>
-			
-			<li>
-				<h2><em>Widgets</em></h2>
-				
-				<ul>
-					<li>
-						<h3>Menu</h3>
-					</li>
-					
-				</ul>
-				
-			</li>
-			
-		</ul>
-		
-			
-			
-		
-	</div>
+
+	</pre>
+	<p>Returns the height of your current screen.</p>
+
+	</li>
+	</ul>			
+	</li>
+	<br>			
+	</ul>
+</div>
 </body>
 
 </html>
