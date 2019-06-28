@@ -3,53 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-
-    <style>
-        .side {
-            animation: fadein 1s;
-        }
-
-        .navbar li {
-            padding-bottom: 20px;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            padding-right: 20px;
-        }
-
-        .navbar a:link {
-            color: black;
-        }
-
-        .navbar a:visited {
-            color: black;
-        }
-
-        .navbar a:hover {
-            color: grey;
-        }
-
-        .icon i {
-            font-size: 2.0em;
-            padding-top: 10px;
-            padding-left: 20px;
-        }
-
-        .icon:hover .far,
-        .icon .fas {
-            display: none;
-        }
-
-        .icon:hover .fas {
-            display: inline-block;
-        }
-
-        @keyframes fadein {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-        }
-    </style>
+    <link rel='stylesheet' type="text/css" href="css/sidebar_theme.css">
+    
 </head>
 <body>
     <div class="side">
@@ -60,30 +15,9 @@
 
         <div class="navbar">
             <ul>
-                <li style="padding-top:20px;"><a href="" onclick="loadPage('about.html#1')">Who am I?</a></li>
-                <li><a href="" onclick="loadPage('about.html#2')">What is this website?</a></li>
-                <li><a href="" onclick="loadPage('about.html#3')">What does Spinner's End stand for?</a></li>
-                <li><a href="" onclick="loadPage('about.html#4')">Website History</a></li>
-                <li><a href="" onclick="loadPage('about.html#5')">Contact</a></li>
+                <li style="padding-top:20px;"><a href="https://github.com/scienz" title="https://github.com/scienz" target="_blank">Github</a></li>
             </ul>
         </div>
     </div>
-
-    <script>
-        function loadPage(url) {
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200)
-            {
-                var element = document.getElementsByClassName("main-text")[0];
-                element.innerHTML = this.responseText;
-            }
-        };
-
-        xhttp.open("GET", url, true);
-        xhttp.send();
-    }
-    </script>
 </body>
 </html>

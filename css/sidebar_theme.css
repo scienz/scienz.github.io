@@ -28,6 +28,10 @@
     color: grey;
 }
 
+.navbar a:visited {
+    color: black;
+}
+
 .icon i {
     font-size: 2.0em;
     padding-top: 10px;

@@ -7,9 +7,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link rel='stylesheet' type="text/css" href="css/sidebar_theme.css">
-
     <style>
         * {
             box-sizing: border-box;
@@ -40,6 +37,7 @@
             width: 100%;
             background-color: white;
             font-size: 2.0em;
+            top: 30%;
         }
 
         .button-container div {
@@ -88,6 +86,7 @@
             padding: 0px;
             font-size: 1.5em;
             animation: fadein 2s;
+            top: 80%;
         }
 
         @keyframes fadein {
@@ -103,29 +102,13 @@
     </div>
 
     <div class="sidebar">
-        <div class="side">
-            <div class="icon">
-                <i class='far fa-arrow-alt-circle-left'></i>
-                <i class='fas fa-arrow-alt-circle-left'></i>
-            </div>
-    
-            <div class="navbar">
-                <ul>
-                    <li style="padding-top:20px;"><div onclick="loadPage(null, 'about.html/#5')">Who am I?</div></li>
-                    <li><a href="#2">What is this website?</a></li>
-                    <li><a href="#3">What does Spinner's End stand for?</a></li>
-                    <li><a href="#4">Website History</a></li>
-                    <li><a href="#5">Contact</a></li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <div class="main-text">
     </div>
 
     <div class="button-container">
-        <div class="buttons" onclick="changeLayout(this, null, 'about.html')">About</div>
+        <div class="buttons" onclick="changeLayout(this, 'about_menu.html', 'about.html')">About</div>
         <div class="buttons" onclick="changeLayout(this)">Accumulations</div>
         <div class="buttons" onclick="changeLayout(this)">CS Notes</div>
         <div class="buttons" onclick="changeLayout(this)">Spinner's End</div>
@@ -154,7 +137,7 @@
         for (var i = 0; i < bot.length; i++) {
             bot[i].style.display = "none";
         }
-
+        
         caller.innerHTML = "";
         caller.style.marginTop = "10px";
         caller.style.height = "100%";
