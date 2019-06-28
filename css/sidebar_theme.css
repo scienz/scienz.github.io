@@ -6,20 +6,11 @@
     padding-bottom: 20px;
 }
 
-.navbar a {
-    text-decoration: none;
+.navbar div {
     padding-right: 20px;
 }
 
-.navbar a:link {
-    color: black;
-}
-
-.navbar a:visited {
-    color: black;
-}
-
-.navbar a:hover {
+.navbar div:hover {
     color: grey;
 }
 
