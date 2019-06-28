@@ -59,14 +59,25 @@
             transition-duration: 1s;
         }
 
-        .frame {
+        .sidebar {
             display: none;
             margin-top: 10px;
             border: 1px solid black;
             height: 91%;
-            width: 100%;
+            width: 20%;
             overflow: auto;
-            position: sticky;
+            float: left;
+        }
+
+        .main-text {
+            display: none;
+            margin-top: 10px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            height: 91%;
+            width: 80%;
+            overflow: auto;
         }
 
         .bottom-line {
@@ -88,11 +99,11 @@
         <div class="header-text">CYAN'S MIND PALACE</div>
     </div>
 
-    <div class="frame">
-    </div>
+    <div class="sidebar"></div>
+    <div class="main-text"></div>
 
     <div class="button-container">
-        <div class="buttons" onclick="changeLayout(this, 'about.html')">About</div>
+        <div class="buttons" onclick="changeLayout(this, 'about_menu.html', 'about.html')">About</div>
         <div class="buttons" onclick="changeLayout(this)">Accumulations</div>
         <div class="buttons" onclick="changeLayout(this)">CS Notes</div>
         <div class="buttons" onclick="changeLayout(this)">Spinner's End</div>
@@ -102,7 +113,7 @@
     <div class="bottom-line">Last Updated: June 27, 2019</div>
 
 <script>
-    function changeLayout(caller, url) {
+    function changeLayout(caller, menu_url, content_url) {
         var header = document.getElementsByClassName("header")[0];
         var header_text = document.getElementsByClassName("header-text")[0];
         var button_container = document.getElementsByClassName("button-container")[0];
@@ -131,25 +142,37 @@
 
         caller.addEventListener('transitionend', function(){
             caller.style.display = "none";
-            var frame = document.getElementsByClassName("frame")[0];
-            frame.style.display = "block";
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+            var main_text = document.getElementsByClassName("main-text")[0];
+            sidebar.style.display = "block";
+            main_text.style.display = "block";
 
-            loadPage(url, frame);
+            loadPage(menu_url, content_url, sidebar, main_text);
         })
     }
 
-    function loadPage(url, element) {
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function(){
+    function loadPage(menu_url, content_url, menu, content) {
+        var xhttp1 = new XMLHttpRequest();
+        xhttp1.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200)
             {
-                element.innerHTML = this.responseText;
+                menu.innerHTML = this.responseText;
             }
         };
 
-        xhttp.open("GET", url, true);
-        xhttp.send();
+        xhttp1.open("GET", menu_url, true);
+        xhttp1.send();
+
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200)
+            {
+                content.innerHTML = this.responseText;
+            }
+        };
+
+        xhttp2.open("GET", content_url, true);
+        xhttp2.send();
     }
 </script>
 
