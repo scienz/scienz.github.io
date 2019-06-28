@@ -111,20 +111,21 @@
     
             <div class="navbar">
                 <ul>
-                    <li style="padding-top:20px;"><div onclick="loadPage(null, 'about.html#1')">Who am I?</div></li>
-                    <li><div onclick="loadPage(null, 'about.html#2')">What is this website?</div></li>
-                    <li><div onclick="loadPage(null, 'about.html#3')">What does Spinner's End stand for?</div></li>
-                    <li><div onclick="loadPage(null, 'about.html#4')">Website History</div></li>
-                    <li><div onclick="loadPage(null, 'about.html#5')">Contact</div></li>
+                    <li style="padding-top:20px;"><div onclick="loadPage(null, 'about.html/#5')">Who am I?</div></li>
+                    <li><a href="#2">What is this website?</a></li>
+                    <li><a href="#3">What does Spinner's End stand for?</a></li>
+                    <li><a href="#4">Website History</a></li>
+                    <li><a href="#5">Contact</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="main-text"></div>
+    <div class="main-text">
+    </div>
 
     <div class="button-container">
-        <div class="buttons" onclick="changeLayout(this, null, 'about.html')">About</div>
+        <div class="buttons" onclick="changeLayout(this, null, null)">About</div>
         <div class="buttons" onclick="changeLayout(this)">Accumulations</div>
         <div class="buttons" onclick="changeLayout(this)">CS Notes</div>
         <div class="buttons" onclick="changeLayout(this)">Spinner's End</div>
@@ -186,16 +187,18 @@
             xhttp1.send();
         }
         
-        var xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200)
-            {
-                document.getElementsByClassName("main-text")[0].innerHTML = this.responseText;
-            }
-        };
+        if (content_url) {
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementsByClassName("main-text")[0].innerHTML = this.responseText;
+                }
+            };
 
-        xhttp2.open("GET", content_url, true);
-        xhttp2.send();
+            xhttp2.open("GET", content_url, true);
+            xhttp2.send();
+        }
     }
 </script>
 

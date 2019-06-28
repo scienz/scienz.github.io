@@ -15,6 +15,19 @@
     color: grey;
 }
 
+.navbar a {
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.navbar a:link {
+    color: black;
+}
+
+.navbar a:hover {
+    color: grey;
+}
+
 .icon i {
     font-size: 2.0em;
     padding-top: 10px;
