@@ -152,6 +152,7 @@
     }
 
     function loadPage(menu_url, content_url, menu, content) {
+        alert(menu_url);
         var xhttp1 = new XMLHttpRequest();
         xhttp1.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200)
@@ -160,7 +161,7 @@
             }
         };
 
-        xhttp1.open("GET", menu_url, true);
+        xhttp1.open("GET", "python_notes.html", true);
         xhttp1.send();
 /*
         var xhttp2 = new XMLHttpRequest();
