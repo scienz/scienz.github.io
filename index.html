@@ -1,200 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Personal Website">
-	<meta name="author" content="Xinchen Zhang">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="Personal Website">
+    <meta name="author" content="Xinchen Zhang">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' 
-		integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-	<title>Spinner's End - A Pernsonal Website</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .header {
+            height: 30%;
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            transition-duration: 1s;
+        }
 
-	<style>
-		* {
-			box-sizing: border-box;
-		}
+        .header-text {
+            color: white;
+            font-size: 2.5em;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            transform: translate(-50%, -50%);
+            transition-duration: 1s;
+        }
 
-		body {
-			background-color: snow;
-			font-family: "Lucida Console", Monaco, monospace
-		}
+        .button-container {
+            height: 50%;
+            width: 100%;
+            background-color: white;
+            font-size: 2.0em;
+        }
 
-		.header {
-			font-size: 1.5em;
-			font-style: italic;
-		}
+        .button-container div {
+            margin-top: 150px;
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            float: left;
+            width: 25%;
+        }
 
-		.column {
-			float: left;
+        .button-container div:hover {
+            transition: width 1s, height 1s;
+            border: 1px solid black;
+            color: grey;
+            cursor: default;
+        }
 
-			border-style: groove;
-			border-color: slategray;
-			border-width: 2px;
-			border-radius: 8px;
+        .buttons {
+            transition-duration: 1s;
+        }
 
-		}
+        .sidebar {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid black;
+            height: 91%;
+            width: 20%;
+            float: left;
+            animation: fadein 2s;
+        }
 
-		.content {
-			max-width: 1000px;
-			margin: auto;
-		}
+        .main-text {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid black;
+            height: 91%;
+            width: 80%;
+            animation: fadein 2s;
+        }
 
-		.content:after {
-			display: table;
-			clear: both;
-		}
+        .bottom-line {
+            text-align: center;
+            padding: 0px;
+            font-size: 1.5em;
+            animation: fadein 2s;
+        }
 
-		.sidebar {
-			width: 300px;
-			height: auto;
-			display: block;
-			overflow-x: hidden;
-			overflow-y: auto;
-			position: absolute;
-			max-height: 90%;
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
 
-			border-right-style: none;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
 
-		}
-
-		.sidebar a, button {
-			display: block;
-			padding: 10px;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			text-decoration: none;
-			font-size: 1.2em;
-			color: black;
-			border: none;
-			background: none;
-			outline: none;
-			cursor: pointer;
-		}
-
-		.sidebar a:hover, button:hover {
-			color: dimgrey;
-		}
-
-		.dropdown-list {
-			display: none;
-			margin-left: 20px;
-		}
-
-		.dropdown-list button {
-			font-size: 1.0em;
-			padding-bottom: 10px;
-			text-align: left;
-		}
-
-		.fas fa-caret-down {
-			float: right;
-			padding-right: 10px;
-		}
-
-		.mainText {
-			width: 700px;
-			height: 90%;
-			margin-left: 300px;
-			position: absolute;
-			overflow-y: auto;
-			padding: 20px;
-
-			border-top-left-radius: 0;
-		}
-	</style>
-
+    </style>
 </head>
+<body>
+    <div class="header">
+        <div class="header-text">CYAN'S MIND PALACE</div>
+    </div>
 
-<body onload="loadPage('about.html')">
-	<div class="content">
-		<div class="header">
-			<p>Spinner's End</p>
-		</div>
+    <div class="sidebar">
 
-		<div class="column sidebar">
-			<button onclick="loadPage('about.html')">About</button>
-			<button class="dropdown-button">Mind Palace<i class='fas fa-caret-down'></i></button>
+    </div>
 
-			<div class="dropdown-list">
-				<button onclick="loadPage('17_Feb_2018.html')">The Ultimate Gaming Solution for Dell XPS 9560</button>
-				<button>Making <em>Sherlock Holmes</em> easier to read</button>
-			</div>
+    <div class="main-text">
 
-			<button class="dropdown-button">Academic Notes<i class='fas fa-caret-down'></i></button>
+    </div>
 
-			<div class="dropdown-list">
-				<button onclick="loadPage('python_notes.html')">Python Notes</button>
-			</div>
+    <div class="button-container">
+        <div class="buttons" onclick="changeLayout(this, 'about.html')">About</div>
+        <div class="buttons" onclick="changeLayout(this)">Accumulations</div>
+        <div class="buttons" onclick="changeLayout(this)">CS Notes</div>
+        <div class="buttons" onclick="changeLayout(this)">Spinner's End</div>
+    </div>
 
-			<button class="dropdown-button">Accumulations<i class='fas fa-caret-down'></i></button>
+    <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen Zhang</div>
+    <div class="bottom-line">Last Updated: June 27, 2019</div>
 
-			<div class="dropdown-list">
-				<button onclick="loadPage('vocabulary.html')">Vocabulary</button>
-				<button onclick="loadPage('colors.html')">Colors</button>
-			</div>
+<script>
+    function changeLayout(caller, url) {
+        var header = document.getElementsByClassName("header")[0];
+        var header_text = document.getElementsByClassName("header-text")[0];
+        var button_container = document.getElementsByClassName("button-container")[0];
+        header.style.height = "8%";
+        header_text.style.top = "4%";
+        header_text.style.fontSize = "1.5em";
 
-			<button onclick="loadPage('club_contributions.html')">Club Contributions</button>
-		</div>
+        var buttons = document.getElementsByClassName("buttons");
+        for (var i = 0; i < buttons.length; i++) {
+            if (!(buttons[i] === caller)) {
+                buttons[i].style.display = "none";
+            }
+        }
 
-		<div class="column mainText" id="mainText">
-			<p>Loading...</p>
-		</div>
+        var bot = document.getElementsByClassName("bottom-line");
+        for (var i = 0; i < bot.length; i++) {
+            bot[i].style.display = "none";
+        }
 
-	</div>
+        caller.innerHTML = "";
+        caller.style.marginTop = "10px";
+        caller.style.height = "100%";
+        button_container.style.height = caller.style.height;
+        caller.style.width = "100%";
+        caller.style.border = "1px solid black";
 
-	<script>
-		var dropdown = document.getElementsByClassName("dropdown-button");
+        caller.addEventListener('transitionend', function(){
+            caller.style.display = "none";
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+            var main_text = document.getElementsByClassName("main-text")[0];
+            sidebar.style.display = "block";
+            main_text.style.display = "block";
 
-		for (var i = 0 ; i < dropdown.length ; i++)
-		{
-			dropdown[i].addEventListener("click", function(){
-				var dropdown_lists = document.getElementsByClassName("dropdown-list")
-				var content = this.nextElementSibling;
+            loadPage(url, main_text);
+        })
+    }
 
-				for (var j = 0 ; j < dropdown_lists.length ; j++)
-				{
-					if (dropdown_lists[j] != content)
-					{
-						dropdown_lists[j].style.display = "none";
-					}
-					else
-					{
-						if (content.style.display == "block")
-						{
-							content.style.display = "none";
-						}
-						else
-						{
-							content.style.display = "block";
-						}
-					}
-				}
-			});
-		}
-	</script>
+    function loadPage(url, element) {
+        var xhttp = new XMLHttpRequest();
 
-	<script>
-		function loadPage(url)
-		{
-			var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200)
+            {
+                element.innerHTML = this.responseText;
+            }
+        };
 
-			xhttp.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200)
-				{
-					document.getElementById("mainText").innerHTML = this.responseText;
-				}
-			};
-
-			xhttp.open("GET", url, true);
-			xhttp.send();
-		}
-	</script>
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+</script>
 
 </body>
-
 </html>
