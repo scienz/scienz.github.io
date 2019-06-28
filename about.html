@@ -6,102 +6,150 @@
     <meta name="description" content="Personal Website">
     <meta name="author" content="Xinchen Zhang">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+    <style>
+        * {
+            animation: fadein 1s;
+        }
+
+        .sidebar {
+            float: left;
+            width: 18%;
+            height: 91%;
+            border-right: 1px solid black;
+            position: absolute;
+        }
+
+        .main-text {
+            width: 80%;
+            float: right;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        .icon:hover .far,
+        .icon .fas {
+            display: none;
+        }
+
+        .icon:hover .fas {
+            display: inline;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+    </style>
 </head>
 
 <body>
-    <h2>About this website & me</h2>
-    <hr>
-    <h3>Who am I?</h2>
-    <ul>
-        <li>
-            <p>My name is Xinchen Zhang. I'm also comfortable of being addressed as <em>Cyan</em>, which is my unofficial English name.</p>
-        </li>
+    <div class="sidebar">
+        <div class="icon">
+            <i class='far fa-arrow-alt-circle-left'></i>
+            <i class='fas fa-arrow-alt-circle-left'></i>
+        </div>
+    </div>
 
-        <li>
-            <p>I'm 19 years old.</p>
-        </li>
+    <div class="main-text">
+        <h2>About this website & me</h2>
+        <hr>
+        <h3>Who am I?</h2>
+        <ul>
+            <li>
+                <p>My name is Xinchen Zhang. I'm also comfortable of being addressed as <em>Cyan</em>, which is my unofficial English name.</p>
+            </li>
 
-        <li>
-            <p>I'm pursuing a Computer Science Bachelor Degree @ UCI.</p>
-        </li>
+            <li>
+                <p>I'm 19 years old.</p>
+            </li>
 
-        <li>
-            <p>I hate spiders.</p>
-        </li>
-    </ul>
+            <li>
+                <p>I'm pursuing a Computer Science Bachelor Degree @ UCI.</p>
+            </li>
 
-    <h3>What is this website?</h2>
-    <ul>
-        <li>
-            <p>This is my personal blog-ish website. I record the solutions of my frequently encountered problems and the things that I consider valuable.
-            </p>
-        </li>
-        <li>
-            <p>I'm still reformatting my old blogs since they tend not to fit on this new look that I updated on Winter 2018.</p>
-        </li>
-    </ul>
+            <li>
+                <p>I hate spiders.</p>
+            </li>
+        </ul>
 
-    <h3>What does <em>Spinner's End</em> stand for?</h2>
-    <ul>
-        <li>
-            <p>To <em>Harry Potter</em> fans:<br>
-                If you get it, there's no need to say more.<br>
-                If you don't get it, shame on you.
-            </p>
-        </li>
+        <h3>What is this website?</h2>
+        <ul>
+            <li>
+                <p>This is my personal blog-ish website. I record the solutions of my frequently encountered problems and the things that I consider valuable.
+                </p>
+            </li>
+            <li>
+                <p>I'm still reformatting my old blogs since they tend not to fit on this new look that I updated on Winter 2018.</p>
+            </li>
+        </ul>
 
-        <li>
-            <p>To others:<br>
-                It's just a random name with no meanings. Forget it.
-            </p>
-        </li>
-    </ul>
+        <h3>What does <em>Spinner's End</em> stand for?</h2>
+        <ul>
+            <li>
+                <p>To <em>Harry Potter</em> fans:<br>
+                    If you get it, there's no need to say more.<br>
+                    If you don't get it, shame on you.
+                </p>
+            </li>
 
-    <hr>
+            <li>
+                <p>To others:<br>
+                    It's just a random name with no meanings. Forget it.
+                </p>
+            </li>
+        </ul>
 
-    <h3>Website History</h3>
-    <ul>
-        <li>
-            <p>Created on a whim on Feburary 2018 and was originally named <em>My Experience</em>. At first
-            it was just a bunch of html files resting on my local machine.
-            </p>
-        </li>
+        <hr>
 
-        <li>
-            <p>It ran on AWS for a few weeks under the domain spinnersend.net and was later
-                transferred to Github Pages.
-            </p>
-        </li>
+        <h3>Website History</h3>
+        <ul>
+            <li>
+                <p>Created on a whim on Feburary 2018 and was originally named <em>My Experience</em>. At first
+                it was just a bunch of html files resting on my local machine.
+                </p>
+            </li>
 
-        <li>
-            <p>Website layout was slightly updated on Summer 2018. The design was eventually discarded.</p>
-        </li>
+            <li>
+                <p>It ran on AWS for a few weeks under the domain spinnersend.net and was later
+                    transferred to Github Pages.
+                </p>
+            </li>
 
-        <li>
-            <p>The current look was designed on Winter 2018, which was implemented after I learned there's 
-                something called <em>AJAX</em>.
-            </p>
-        </li>
-    </ul>
+            <li>
+                <p>Website layout was slightly updated on Summer 2018. The design was eventually discarded.</p>
+            </li>
 
-    <hr>
+            <li>
+                <p>The current look was designed on Winter 2018, which was implemented after I learned there's 
+                    something called <em>AJAX</em>.
+                </p>
+            </li>
+        </ul>
 
-    <h3>Contact</h2>
-    <ul>
-        <li>
-            My email address: xinchez4@uci.edu
-        </li>
-    </ul>
+        <hr>
 
-    <hr>
+        <h3>Contact</h3>
+        <ul>
+            <li>
+                My email address: xinchez4@uci.edu
+            </li>
+        </ul>
 
-    <p>
-        <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px"
-                src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                alt="Valid CSS!">
-        </a>
-    </p>
+        <hr>
+
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="Valid CSS!">
+            </a>
+        </p>
+    </div>
 </body>
 
 </html>

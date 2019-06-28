@@ -59,26 +59,13 @@
             transition-duration: 1s;
         }
 
-        .sidebar {
+        .frame {
             display: none;
             margin-top: 10px;
             border: 1px solid black;
             height: 91%;
-            width: 20%;
-            float: left;
+            width: 100%;
             overflow: auto;
-            animation: fadein 2s;
-        }
-
-        .main-text {
-            display: none;
-            margin-top: 10px;
-            border: 1px solid black;
-            height: 91%;
-            width: 80%;
-            overflow: auto;
-            margin-left: 20px;
-            animation: fadein 2s;
         }
 
         .bottom-line {
@@ -93,7 +80,6 @@
             to   { opacity: 1; }
         }
 
-
     </style>
 </head>
 <body>
@@ -101,12 +87,7 @@
         <div class="header-text">CYAN'S MIND PALACE</div>
     </div>
 
-    <div class="sidebar">
-
-    </div>
-
-    <div class="main-text">
-
+    <div class="frame">
     </div>
 
     <div class="button-container">
@@ -149,12 +130,10 @@
 
         caller.addEventListener('transitionend', function(){
             caller.style.display = "none";
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-            var main_text = document.getElementsByClassName("main-text")[0];
-            sidebar.style.display = "block";
-            main_text.style.display = "block";
+            var frame = document.getElementsByClassName("frame")[0];
+            frame.style.display = "block";
 
-            loadPage(url, main_text);
+            loadPage(url, frame);
         })
     }
 
