@@ -8,6 +8,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel='stylesheet' type="text/css" href="css/sidebar_theme.css">
+
     <style>
         * {
             box-sizing: border-box;
@@ -27,7 +30,7 @@
             width: 100%;
             background-color: black;
             text-align: center;
-            transition-duration: 1s;
+            transition-duration: 0.8s;
         }
 
         .header-text {
@@ -38,24 +41,29 @@
             left: 50%;
             top: 15%;
             transform: translate(-50%, -50%);
-            transition-duration: 1s;
+            transition-duration: 0.8s;
         }
 
         .button-container {
+            display: flex;
             height: 50%;
             width: 100%;
             background-color: white;
             font-size: 2.0em;
             top: 30%;
+            align-items: flex-start;
+            flex-wrap: wrap;
         }
 
-        .button-container div {
+        .buttons {
             margin-top: 150px;
             text-decoration: none;
             text-align: center;
             color: black;
             float: left;
             width: 25%;
+            animation: fadein 1s;
+            transition-duration: 0.8s;
         }
 
         .button-container div:hover {
@@ -65,29 +73,36 @@
             cursor: default;
         }
 
-        .buttons {
-            transition-duration: 1s;
+
+        .flex-container {
+            display: none;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            min-height: 0;
+            height: 98%;
+            border: 1px solid black;
         }
 
         .sidebar {
-            display: none;
             margin-top: 10px;
             border: 1px solid black;
-            height: 89%;
-            width: 20%;
+            flex: 20%;
+            height: 91%;
             overflow: auto;
-            float: left;
         }
 
         .main-text {
-            display: none;
             margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
             border-top: 1px solid black;
             border-bottom: 1px solid black;
             border-right: 1px solid black;
-            height: 89%;
-            width: 80%;
+            flex: 80%;
             overflow: auto;
+            height: 91%;
+            flex-shrink: 0;
         }
 
         .bottom-line {
@@ -98,22 +113,60 @@
             top: 80%;
         }
 
+        .icon {
+            display: none;
+            font-size: 1.8em;
+            float: left;
+            color: white;
+        }
+
+        .icon i {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+
+        .icon:hover .far,
+        .icon .fas {
+            display: none;
+        }
+
+        .icon:hover .fas {
+            display: inline-block;
+        }
+
         @keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
+        }
+
+        @media screen and (max-width: 620px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 1.5em;
+            }
+
+            .buttons {
+                margin: 10px;
+            }
         }
 
     </style>
 </head>
 <body>
     <div class="header">
+        <div class="icon">
+            <i class='far fa-arrow-alt-circle-left'></i>
+            <i class='fas fa-arrow-alt-circle-left' onclick="goBack()"></i>
+        </div>
         <div class="header-text">CYAN'S MIND PALACE</div>
     </div>
-
-    <div class="sidebar">
-    </div>
-
-    <div class="main-text">
+    
+    <div class="flex-container">
+        <div class="sidebar"></div>
+        <div class="main-text"></div>
     </div>
 
     <div class="button-container">
@@ -127,10 +180,16 @@
     <div class="bottom-line">Last Updated: June 27, 2019</div>
 
 <script>
+    var r_innerHTML = "";
+    var r_height = 0;
+    var r_width = 0;
+    var r_object = null;
+
     function changeLayout(caller, menu_url, content_url) {
         var header = document.getElementsByClassName("header")[0];
         var header_text = document.getElementsByClassName("header-text")[0];
         var button_container = document.getElementsByClassName("button-container")[0];
+    
         header.style.height = "8%";
         header_text.style.top = "4%";
         header_text.style.fontSize = "1.5em";
@@ -146,24 +205,69 @@
         for (var i = 0; i < bot.length; i++) {
             bot[i].style.display = "none";
         }
+
+        r_innerHTML = caller.innerHTML;
+        r_height = caller.style.height;
+        r_width = caller.style.width;
+        r_object = caller;
         
         caller.innerHTML = "";
         caller.style.marginTop = "10px";
         caller.style.height = "100%";
         button_container.style.height = caller.style.height;
         caller.style.width = "100%";
-        caller.style.border = "1px solid black";
-
-        caller.addEventListener('transitionend', function(){
+        
+        loadPage(menu_url, content_url);
+        caller.addEventListener('transitionend', function _eventHandler(){
             caller.style.display = "none";
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-            var main_text = document.getElementsByClassName("main-text")[0];
-            sidebar.style.display = "block";
-            main_text.style.display = "block";
+        
+            var container = document.getElementsByClassName("flex-container")[0];
+            container.style.display = "flex";
 
-            loadPage(menu_url, content_url);
+            var icon = document.getElementsByClassName("icon")[0];
+            icon.style.display = "inline-block";
+
+            caller.removeEventListener('transitionend', _eventHandler);
+        });
+        
+    }
+
+    function goBack() {
+        var header = document.getElementsByClassName("header")[0];
+        var header_text = document.getElementsByClassName("header-text")[0];
+        var button_container = document.getElementsByClassName("button-container")[0];
+        var icon = document.getElementsByClassName("icon")[0];
+        var container = document.getElementsByClassName("flex-container")[0];
+
+        icon.style.display = "none";
+        container.style.display = "none";
+        header.style.height = "30%";
+        header_text.style.top = "15%";
+        header_text.style.fontSize = "2.5em";
+        button_container.style.height = "50%";
+
+
+        header_text.addEventListener('transitionend', function _eventHandler(){
+            var buttons = document.getElementsByClassName("buttons");
+            for (var i = 0; i < buttons.length; i++){
+                buttons[i].style.display = "block";
+                if (buttons[i] == r_object) {
+                    buttons[i].style.marginTop = "150px";
+                    buttons[i].style.height = r_height;
+                    buttons[i].style.width = r_width;
+                    buttons[i].innerHTML = r_innerHTML;
+                }
+            }
+
+            var bot = document.getElementsByClassName("bottom-line");
+            for (var i = 0; i < bot.length; i++) {
+                bot[i].style.display = "block";
+            }
+
+            header_text.removeEventListener('transitionend', _eventHandler);
         })
     }
+
 
     function loadPage(menu_url, content_url) {
         if (menu_url) {

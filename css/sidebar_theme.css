@@ -32,21 +32,6 @@
     color: black;
 }
 
-.icon i {
-    font-size: 2.0em;
-    padding-top: 10px;
-    padding-left: 20px;
-}
-
-.icon:hover .far,
-.icon .fas {
-    display: none;
-}
-
-.icon:hover .fas {
-    display: inline-block;
-}
-
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
