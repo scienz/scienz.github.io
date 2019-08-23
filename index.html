@@ -176,7 +176,8 @@
         <div class="sidebar">
             <div class="about">
                 <ul>
-                    <li onclick="loadPage('about.html')">About This Site</li>
+                    <li onclick="loadPage('about.html')">About This Site & Me</li>
+                    <li onclick="loadPage('club_contributions.html')">My Club Contributions</li>
                 </ul>
             </div>
             <div class="accumulations">
@@ -260,6 +261,23 @@
         var targeting_menu_list = document.getElementsByClassName(class_name)[0];
         if (targeting_menu_list) {
             targeting_menu_list.style.display = "flex";
+
+            switch (class_name) {
+                case "about":
+                    loadPage('about.html');
+                    break;
+                case "accumulations":
+                    loadPage('vocabulary.html');
+                    break;
+                case "cs_notes":
+                    loadPage(null);
+                    break;
+                case "spinners_end":
+                    loadPage("17_Feb_2018.html");
+                    break
+                default:
+                    loadPage('about.html');
+            }
         }        
 
         caller.addEventListener('transitionend', function _eventHandler(){
