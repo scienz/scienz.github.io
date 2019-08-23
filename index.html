@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link rel='stylesheet' type="text/css" href="css/sidebar_theme.css">
 
     <style>
         * {
@@ -92,6 +91,15 @@
             overflow: auto;
         }
 
+        .sidebar div {
+            display: none;
+        }
+
+        .sidebar li {
+            cursor: pointer;
+            padding: 10px;
+        }
+
         .main-text {
             margin-top: 10px;
             padding-left: 10px;
@@ -165,15 +173,39 @@
     </div>
     
     <div class="flex-container">
-        <div class="sidebar"></div>
+        <div class="sidebar">
+            <div class="about">
+                <ul>
+                    <li onclick="loadPage('about.html')">About This Site</li>
+                </ul>
+            </div>
+            <div class="accumulations">
+                <ul>
+                    <li onclick="loadPage('vocabulary.html')">Vocabulary</li>
+                    <li onclick="loadPage('colors.html')">Colors</li>
+                </ul>
+            </div>
+            <div class="cs_notes">
+                <ul>
+                    <li>Backup Knownledge</li>
+                    <li>Leetcode Notes</li>
+                    <li onclick="loadPage('python_notes.html')">Python Notes</li>
+                </ul>
+            </div>
+            <div class="spinners_end">
+                <ul>
+                    <li onclick="loadPage('17_Feb_2018.html')">The Ultimate Gaming Solution for Dell XPS 9560</li>
+                </ul>
+            </div>
+        </div>
         <div class="main-text"></div>
     </div>
 
     <div class="button-container">
-        <div class="buttons" onclick="changeLayout(this, 'about_menu.html', 'about.html')">About</div>
-        <div class="buttons" onclick="changeLayout(this)">Accumulations</div>
-        <div class="buttons" onclick="changeLayout(this)">CS Notes</div>
-        <div class="buttons" onclick="changeLayout(this)">Spinner's End</div>
+        <div class="buttons" onclick="changeLayout(this, 'about')">About</div>
+        <div class="buttons" onclick="changeLayout(this, 'accumulations')">Accumulations</div>
+        <div class="buttons" onclick="changeLayout(this, 'cs_notes')">CS Notes</div>
+        <div class="buttons" onclick="changeLayout(this, 'spinners_end')">Spinner's End</div>
     </div>
 
     <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen Zhang</div>
@@ -185,10 +217,18 @@
     var r_width = 0;
     var r_object = null;
 
-    function changeLayout(caller, menu_url, content_url) {
+    function changeLayout(caller, class_name) {
         var header = document.getElementsByClassName("header")[0];
         var header_text = document.getElementsByClassName("header-text")[0];
         var button_container = document.getElementsByClassName("button-container")[0];
+        var sidebar = document.getElementsByClassName("sidebar")[0];
+
+        var sidebar_children = sidebar.children;
+        for (var i = 0; i < sidebar_children.length; i++) {
+            if (sidebar_children[i]) {
+                sidebar_children[i].style.display = "none";
+            }
+        }
     
         header.style.height = "8%";
         header_text.style.top = "4%";
@@ -217,7 +257,11 @@
         button_container.style.height = caller.style.height;
         caller.style.width = "100%";
         
-        loadPage(menu_url, content_url);
+        var targeting_menu_list = document.getElementsByClassName(class_name)[0];
+        if (targeting_menu_list) {
+            targeting_menu_list.style.display = "flex";
+        }        
+
         caller.addEventListener('transitionend', function _eventHandler(){
             caller.style.display = "none";
         
@@ -269,20 +313,7 @@
     }
 
 
-    function loadPage(menu_url, content_url) {
-        if (menu_url) {
-            var xhttp1 = new XMLHttpRequest();
-            xhttp1.onreadystatechange = function(){
-                if (this.readyState == 4 && this.status == 200)
-                {
-                    document.getElementsByClassName("sidebar")[0].innerHTML = this.responseText;
-                }
-            };
-
-            xhttp1.open("GET", menu_url, true);
-            xhttp1.send();
-        }
-        
+    function loadPage(content_url) {
         if (content_url) {
             var xhttp2 = new XMLHttpRequest();
             xhttp2.onreadystatechange = function(){
