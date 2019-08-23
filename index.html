@@ -188,8 +188,8 @@
             </div>
             <div class="cs_notes">
                 <ul>
-                    <li>Backup Knownledge</li>
-                    <li>Leetcode Notes</li>
+                    <li onclick="loadPage('backup_knowledge.html')">Backup Knownledge</li>
+                    <li onclick="loadPage('leetcode_notes.html')">Leetcode Notes</li>
                     <li onclick="loadPage('python_notes.html')">Python Notes</li>
                 </ul>
             </div>
@@ -270,7 +270,7 @@
                     loadPage('vocabulary.html');
                     break;
                 case "cs_notes":
-                    loadPage(null);
+                    loadPage("backup_knowledge.html");
                     break;
                 case "spinners_end":
                     loadPage("17_Feb_2018.html");
@@ -333,16 +333,16 @@
 
     function loadPage(content_url) {
         if (content_url) {
-            var xhttp2 = new XMLHttpRequest();
-            xhttp2.onreadystatechange = function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
                 if (this.readyState == 4 && this.status == 200)
                 {
                     document.getElementsByClassName("main-text")[0].innerHTML = this.responseText;
                 }
             };
 
-            xhttp2.open("GET", content_url, true);
-            xhttp2.send();
+            xhttp.open("GET", content_url, true);
+            xhttp.send();
         }
     }
 </script>

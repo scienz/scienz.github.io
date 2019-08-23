@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Personal Website">
+    <meta name="author" content="Xinchen Zhang">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Backup Knowledge - Cyan's Mind Palace</title>
+
+    <style>
+        .main {
+            animation: fadein 1s;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Backup Knowledge</h2>
+        <hr>
+    </div>
+    <div>
+        <h3>What happens when a person types <em>www.google.com</em> into the browser and hits Enter?</h3>
+        <p>If the computer isn't connected to the Internet:</p>
+        <ul>
+            <li>To connect to the Internet, the computer need to get its own IP address.
+                It would also need the address of the first-hop router and the address of
+                the <strong>DNS server</strong>. <strong>DHCP</strong> would be used here.
+            </li>
+            <li>
+                <strong>DHCP request</strong> is encapsulated in UDP, which is encapsulated in IP, which is
+                encapsulated in 802.3 Ethernet.
+            </li>
+            <li>
+                Ethernet frame broadcast on LAN.
+            </li>
+            <li>
+                Ethernet demuxed to IP, IP demuxed to UDP, and UDP demuxed to DHCP.
+            </li>
+            <li>
+                DHCP server formulates <strong>DHCP ACK</strong> containing the client's address,
+                the address of the first-hop router and the name and IP address of the local
+                DNS server.
+            </li>
+            <li>
+                The frame is encapuslated at DHCP server, which is forwarded through LAN and
+                is demuxed at client. The client receives the <strong>DHCP ACK</strong> reply.
+            </li>
+            <li>
+                Client now 1) has IP address 2) knows the name and address of the DNS server
+                and 3) knows the IP address of its first-hop router.
+                The client is now connected to the Internet.
+            </li>
+        </ul>
+        <p>If the computer is connected to the Internet:</p>
+        <ul>
+            <li>
+                Before sending the <strong>HTTP request</strong>, we need the IP address of
+                <em>www.google.com</em>: <strong>DNS</strong>.
+            </li>
+            <li>
+                <strong>DNS query</strong> is created, encapsulated in UDP, encapsulated in IP, encapsulated
+                in Ethernet. To send frame to the router, we need the MAC address of the
+                router interface: ARP.
+            </li>
+            <li>
+                <strong>ARP query</strong> is broadcast, received by the router, which rerplies with the
+                with <strong>ARP reply</strong> giving MAC address of router interface.
+            </li>
+            <li>Client now knows the MAC address of the first-hop router. Now send the frame
+                containing the <strong>DNS query</strong>.
+            </li>
+            <li>
+                DNS server replies to the client with the IP address of <em>www.google.com</em>.
+            </li>
+            <li>
+                To send an <strong>HTTP request</strong>, the client first opens <strong>TCP socket </strong>
+                to web server.
+            </li>
+            <li>TCP connection is established after the <em>3-way handshake</em>.</li>
+            <li><strong>HTTP request</strong> is sent into the TCP socket.</li>
+            <li>
+                IP datagram containing <storng>HTTP request</storng> is routed to <em>www.google.com</em>.
+            </li>
+            <li>
+                Web server responds with <strong>HTTP reply</strong> (containing web page).
+            </li>
+            <li>IP datagram containing <strong>HTTP reply</strong> is routed back to client</li>
+        </ul>
+    </div>
+</body>
