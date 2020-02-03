@@ -43,6 +43,14 @@
             transition-duration: 0.8s;
         }
 
+        a {
+            text-decoration: none;    
+        }
+
+        a :hover, a:visited, a:focus {
+            color: inherit;
+        }
+
         .button-container {
             display: flex;
             height: 50%;
@@ -142,6 +150,25 @@
             display: inline-block;
         }
 
+        .spinners_end>*:hover {
+            background-color: white;
+        }
+
+        .online_resume {
+            width: 50%;
+            animation-name: button_color_fade;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+        }
+
+        @keyframes button_color_fade {
+            0%    {color: #000000; }
+            25%   {color: #2e5e5e; }
+            50%   {color: #62bfbf; }
+            75%   {color: #2e5e5e; }
+            100%  {color: #000000; }
+        }
+
         @keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
@@ -169,7 +196,10 @@
             <i class='far fa-arrow-alt-circle-left'></i>
             <i class='fas fa-arrow-alt-circle-left' onclick="goBack()"></i>
         </div>
-        <div class="header-text">CYAN'S MIND PALACE</div>
+        <div class="header-text">
+            CYAN'S MIND PALACE&nbsp
+            <a href="https://github.com/scienz" target="_blank" class='fab fa-github' style='font-size:36px'></a>
+        </div>
     </div>
     
     <div class="flex-container">
@@ -180,23 +210,38 @@
                     <li onclick="loadPage('club_contributions.html')">My Club Contributions</li>
                 </ul>
             </div>
-            <div class="accumulations">
+            <div class="online_resume">
                 <ul>
-                    <li onclick="loadPage('vocabulary.html')">Vocabulary</li>
-                    <li onclick="loadPage('colors.html')">Colors</li>
-                </ul>
-            </div>
-            <div class="cs_notes">
-                <ul>
-                    <li onclick="loadPage('backup_knowledge.html')">Backup Knownledge</li>
-                    <li onclick="loadPage('leetcode_notes.html')">Leetcode Notes</li>
-                    <li onclick="loadPage('python_notes.html')">Python Notes</li>
+                    <li onclick="loadPage('paper_resume_en.html')">Paper Resume (English)</li>
+                    <li onclick="loadPage('paper_resume_ch.html')">Paper Resume (Chinese)</li>
                 </ul>
             </div>
             <div class="spinners_end">
-                <ul>
-                    <li onclick="loadPage('17_Feb_2018.html')">The Ultimate Gaming Solution for Dell XPS 9560</li>
-                </ul>
+                <div onclick="loadPage('')">Introduction</div>
+                <div>
+                    <button class="dropdown-btn">Blogs
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <div onclick="loadPage('')">The Ultimate Gaming Solution for Dell XPS 15 9560</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="dropdown-btn">CS notes
+                            <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <div onclick="loadPage('')">CS NOTES1</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="dropdown-btn">Accumulation
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <div onclick="loadPage('')">Accumulation1</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="main-text"></div>
@@ -204,13 +249,12 @@
 
     <div class="button-container">
         <div class="buttons" onclick="changeLayout(this, 'about')">About</div>
-        <div class="buttons" onclick="changeLayout(this, 'accumulations')">Accumulations</div>
-        <div class="buttons" onclick="changeLayout(this, 'cs_notes')">CS Notes</div>
+        <div class="buttons online_resume" onclick="changeLayout(this, 'online_resume')">Online Resume</div>
         <div class="buttons" onclick="changeLayout(this, 'spinners_end')">Spinner's End</div>
     </div>
 
-    <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen Zhang</div>
-    <div class="bottom-line">Last Updated: June 27, 2019</div>
+    <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen (Cyan) Zhang</div>
+    <div class="bottom-line">Last Updated: Feb 2, 2020</div>
 
 <script>
     var r_innerHTML = "";
@@ -221,6 +265,7 @@
     function changeLayout(caller, class_name) {
         var header = document.getElementsByClassName("header")[0];
         var header_text = document.getElementsByClassName("header-text")[0];
+        var github_icon = document.getElementsByClassName("fa-github")[0];
         var button_container = document.getElementsByClassName("button-container")[0];
         var sidebar = document.getElementsByClassName("sidebar")[0];
 
@@ -234,6 +279,7 @@
         header.style.height = "8%";
         header_text.style.top = "4%";
         header_text.style.fontSize = "1.5em";
+        github_icon.style.fontSize = "0.9em";
 
         var buttons = document.getElementsByClassName("buttons");
         for (var i = 0; i < buttons.length; i++) {
@@ -297,6 +343,7 @@
     function goBack() {
         var header = document.getElementsByClassName("header")[0];
         var header_text = document.getElementsByClassName("header-text")[0];
+        var github_icon = document.getElementsByClassName("fa-github")[0];
         var button_container = document.getElementsByClassName("button-container")[0];
         var icon = document.getElementsByClassName("icon")[0];
         var container = document.getElementsByClassName("flex-container")[0];
@@ -307,7 +354,7 @@
         header_text.style.top = "15%";
         header_text.style.fontSize = "2.5em";
         button_container.style.height = "50%";
-
+        github_icon.style.fontSize = "1.0em";
 
         header_text.addEventListener('transitionend', function _eventHandler(){
             var buttons = document.getElementsByClassName("buttons");

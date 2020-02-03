@@ -6,10 +6,10 @@
     <meta name="author" content="Xinchen Zhang">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Backup Knowledge - Cyan's Mind Palace</title>
+    <title>Knowledge Database - Cyan's Mind Palace</title>
 
     <style>
-        .main {
+        body {
             animation: fadein 1s;
         }
 
@@ -22,7 +22,12 @@
 </head>
 <body>
     <div>
-        <h2>Backup Knowledge</h2>
+        <h2>Knowledge Database</h2>
+        <hr>
+        <p><em>Tip: Hover over the titles to see the references.</em></p>
+        <p><em>Useful / Additional referenced links:</em>
+            <br>&nbsp&nbsp&nbsp&nbsp - <a href="https://www.jianshu.com/p/ad7643486851" target="_blank">腾讯面试选择题考点 by 安安zoe</a>
+        </p>
         <hr>
     </div>
     <div>
@@ -92,6 +97,103 @@
                 Web server responds with <strong>HTTP reply</strong> (containing web page).
             </li>
             <li>IP datagram containing <strong>HTTP reply</strong> is routed back to client</li>
+        </ul>
+
+        <br>
+
+        <h3 title="Reference: The C Programming Language by K&R P 122 / UCI ICS 53 taught by Professor Wong-ma">Complicated Declarations in C</h3>
+        <ul>
+            <li>
+                <p>int (*a)[13]<br>&nbsp&nbsp&nbsp&nbsp a: pointer to array[13] of int</p>
+                <p>int *a[13]<br>&nbsp&nbsp&nbsp&nbsp a: array[13] of pointer to int</p>
+                <p>void *foo()<br>&nbsp&nbsp&nbsp&nbsp foo: function returning pointer to void</p>
+                <p>void (*foo)()<br>&nbsp&nbsp&nbsp&nbsp foo: pointer to function returning void</p>
+            </li>
+        </ul>
+
+        <br>
+
+        <h3 title="Reference: Wikipedia / CS: APP / several of my CS professors">
+            Difference between <a href="https://en.wikipedia.org/wiki/Process_(computing)">Processes</a> 
+            and <a href="https://en.wikipedia.org/wiki/Thread_(computing)">Threads</a>
+        </h3>
+        <ul>
+            <li><p>A process is the instance of a computer program that is being executed by one or many threads.</p></li>
+            <li><p>Their communication mechanisms are different:</p>
+                <ul>
+                    <li><p>IPC: Inter-Process Communication</p>
+                        <ul>
+                            <li>Pipe (管道)</li>
+                            <li>Semaphore (信号量)</li>
+                            <li>Signal (信号)</li>
+                            <li>Shared Memory (共享内存)</li>
+                            <li>Socket (套接字)</li>
+                        </ul>
+                    </li>
+                    <li><p>Shared variables in Threaded C Programs</p>
+                        <ul>
+                            <li><p>A Variable x is shared iff multiple threads reference some instance of x.</p></li>
+                            <li><p>Multiple threads run within the context of a single process:</p> 
+                                <ul>
+                                    <li>Each thread has its own separate thread context:
+                                        <br>
+                                        - Thread ID, stack, stack pointer (esp), PC (Program Counter) / IP (Instruction Pointer), condition codes, and GP (General Purpose) registers
+                                    </li>
+                                    <br>
+                                    <li>All threads share the remaining process context:
+                                        <br>
+                                        - CODE & DATA sections, heap, and shared library segments of the process virtual address space
+                                        <br>
+                                        - Open files and installed handlers
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <br>
+
+        <h3 title="Reference: Computer Systems: A Programmer's Perspective P 1001 / UCI ICS 53 taught by Professor Wong-ma">Thread Synchronization (线程中的同步)</h3>
+        <ul>
+            <li><p>Critical Section / Critical Region (临界区)</p>
+                <ul>
+                    <li>
+                        <em>Semaphore invariant</em>: The definitions of P and V ensure that a running Programme
+                        can never enter a state where a properly intialized semaphore has a negative value.
+                    </li>
+                    <li>
+                        The semaphore operations ensure mutually exclusive access to the critical region.
+                    </li>
+                </ul>
+            </li>
+            <li><p>Semaphore (信号量)</p>
+                <ul>
+                    <li>
+                        When several threads are waiting at a semaphore, 
+                        you cannot predict which one will be restarted as a result of V.
+                    </li>
+                </ul>
+            </li>
+            <li><p>Mutex (互斥锁，互斥量)</p>
+                <ul>
+                    <li>
+                        Binary semaphores whose purpose is to provide mutual exclusion are often called mutexes.
+                    </li>
+                    <li>
+                        Performing a P operation on a mutex is called <em>locking</em> the mutex,
+                        Performing a V operation on a mutex is called <em>unlocking</em> the mutex.
+                    </li>
+                </ul>
+            </li>
+            <li><p>Event (事件)</p>
+                <ul>
+                    <li>Based upon Win32 API.</li>
+                </ul>
+            </li>
+            <li><p>Detour: Java threads are synchronized with a mechanism called a <em>Java monitor</em></p></li>
         </ul>
     </div>
 </body>

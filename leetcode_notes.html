@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Personal Website">
+    <meta name="author" content="Xinchen Zhang">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leetcode Notes - Cyan's Mind Palace</title>
+
+    <style>
+        body {
+            animation: fadein 1s;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Leetcode Notes</h2>
+        <hr>
+    </div>
+    <div>
+        <h3>342</h3>
+        <p>Numbers that are power of 2 can have the set bit [1] in both even and odd position,
+            whereas numbers that are power of 4 only have the set bit in the odd position.
+        </p>
+        <p><code>num > 0 & !(num & (num - 1))</code> checks whether <code>num</code> is a power of 2.</p>
+        <a href="https://www.geeksforgeeks.org/program-to-find-whether-a-no-is-power-of-two/" target="_blank">
+            Reference: https://www.geeksforgeeks.org/program-to-find-whether-a-no-is-power-of-two/
+        </a>
+
+        <h3>461</h3>
+        <p><code>n & (n - 1)</code> turns off (set to 0) the rightmost bit.</p>
+        <p>Two ways to count the number of set bits in a number n:</p>
+    </div>
+</body>
