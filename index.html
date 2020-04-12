@@ -13,6 +13,10 @@
     <style>
         * {
             box-sizing: border-box;
+
+            -webkit-transition: all ease 0.8s;
+	        -moz-transition: all ease 0.8s;
+	        transition: all ease 0.8s;
         }
 
         html, body {
@@ -253,8 +257,8 @@
         <div class="buttons" onclick="changeLayout(this, 'spinners_end')">Spinner's End</div>
     </div>
 
-    <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen (Cyan) Zhang</div>
-    <div class="bottom-line">Last Updated: Feb 2, 2020</div>
+    <div class="bottom-line" style="margin-bottom: 60px; font-style: italic;">Xinchen <a style="cursor: pointer;" onclick="bgColorFade()">(Cyan)</a> Zhang</div>
+    <div class="bottom-line">Last Updated: April 12, 2020</div>
 
 <script>
     var r_innerHTML = "";
@@ -374,7 +378,6 @@
         })
     }
 
-
     function loadPage(content_url) {
         if (content_url) {
             var xhttp = new XMLHttpRequest();
@@ -389,6 +392,12 @@
             xhttp.send();
         }
     }
+
+    function bgColorFade() {
+        // document.body.style.backgroundImage = "linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)";
+        document.getElementsByClassName("header")[0].style.backgroundImage = "linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)";
+    }
+
 </script>
 
 </body>
